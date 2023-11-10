@@ -34,12 +34,16 @@ bg=000    # Background
 b=0       # Bold
 
 
-
 # #################################################################################
 # FUNCTIONS
 
-# Convert alias to appropriate 256 number
+# C : Convert colour alias to appropriate 256 byte pointing to colour
+#     c returns in the form of the byte echoing. 
+#     It's most easily used via command substitution ie:
+#
+#     $(c alias)    # Substitute this in place of a byte colour code 
 function c() { alias cc="$1" && fg=$(cc); echo -n $fg; }
+
 
 function secho() { 
 
@@ -61,6 +65,7 @@ function secho() {
 
 }
 
+
 function setTerm() {
 
 # "Set Terminal"
@@ -79,8 +84,6 @@ function setTerm() {
   if [ $3 = 1 ]; then echo -ne $(tput bold); fi 
 
 }
-
-
 
 function setTextColour() {
 
